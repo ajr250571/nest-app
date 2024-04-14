@@ -30,7 +30,7 @@ export class UsersController {
   }
 
   @Get(':id')
-  @ApiOperation({ summary: 'Get One User' })
+  @ApiOperation({ summary: 'Get User' })
   findOne(@Param('id') id: string) {
     return this.usersService.findOne(id);
   }
