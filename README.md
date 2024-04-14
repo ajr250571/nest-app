@@ -1,5 +1,5 @@
 https://www.youtube.com/watch?v=wsqcg5ZtUMM&t=2880s
-1:19
+1:50
 
 <p align="center">
   <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>

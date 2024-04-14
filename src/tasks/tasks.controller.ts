@@ -3,35 +3,49 @@ import {
   Controller,
   Delete,
   Get,
+  HttpCode,
   Param,
+  ParseIntPipe,
   Patch,
   Post,
   Put,
   Query,
+  UseGuards,
   UsePipes,
   ValidationPipe,
 } from '@nestjs/common';
 import { TasksService } from './tasks.service';
 import { createTaskDto } from './dto/create-task.dto';
 import { updateTaskDto } from './dto/update-task.dto';
+import { TasksPipe } from './tasks.pipe';
+import { TasksGuard } from './tasks.guard';
 
 @Controller('/tasks')
 export class TasksController {
-  constructor(private tasksService: TasksService) {}
+  constructor(private tasksService: TasksService) { }
+
+  @Get("/error")
+  @HttpCode(400)
+  getError() {
+    return "Not Found."
+  }
 
   @Get()
-  getAllTasks(@Query() query: any) {
-    console.log(query);
+  @UseGuards(TasksGuard)
+  getAllTasks(@Query(TasksPipe) query: any) {
+    if (query.id) {
+      console.log(typeof query.id);
+    }
     return this.tasksService.getTasks();
   }
 
   @Get('/:id')
-  getTask(@Param('id') id: String) {
-    return this.tasksService.getTask(Number(id));
+  getTask(@Param('id', ParseIntPipe) id: number) {
+    return this.tasksService.getTask(id);
   }
 
   @Post()
-  @UsePipes(new ValidationPipe())
+  @HttpCode(200)
   createTask(@Body() task: createTaskDto) {
     return this.tasksService.createTask(task);
   }
