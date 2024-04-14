@@ -19,15 +19,17 @@ import { createTaskDto } from './dto/create-task.dto';
 import { updateTaskDto } from './dto/update-task.dto';
 import { TasksPipe } from './tasks.pipe';
 import { TasksGuard } from './tasks.guard';
+import { ApiTags } from '@nestjs/swagger';
 
 @Controller('/tasks')
+@ApiTags('tasks')
 export class TasksController {
-  constructor(private tasksService: TasksService) { }
+  constructor(private tasksService: TasksService) {}
 
-  @Get("/error")
+  @Get('/error')
   @HttpCode(400)
   getError() {
-    return "Not Found."
+    return 'Not Found.';
   }
 
   @Get()
