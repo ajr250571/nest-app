@@ -28,11 +28,8 @@ export class AuthService {
 
     const payload = { id: user.id, name: user.name };
     const token = this.jwtService.sign(payload);
-    const data = {
-      user,
-      token,
+    return {
+      access_token: 'Bearer ' + this.jwtService.sign(payload),
     };
-
-    return data;
   }
 }

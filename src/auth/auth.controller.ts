@@ -13,6 +13,7 @@ import { RegisterAuthDto } from './dto/register-auth.dto';
 import { ApiTags } from '@nestjs/swagger';
 import { LoginAuthDto } from './dto/login-auth.dto';
 import { AuthGuard } from './auth.guard';
+import { Public } from './auth.decorator';
 
 ApiTags('auth');
 @Controller('auth')
@@ -27,7 +28,7 @@ export class AuthController {
   loginUser(@Body() loginDto: LoginAuthDto) {
     return this.authService.login(loginDto);
   }
-  @UseGuards(AuthGuard)
+  @Public()
   @Get('profile')
   getProfile(@Request() req) {
     return req.user;

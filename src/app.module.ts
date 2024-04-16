@@ -6,8 +6,14 @@ import { ClientsModule } from './clients/clients.module';
 import { UsersModule } from './users/users.module';
 
 @Module({
-  imports: [TasksModule, ProjectsModule, AuthModule, ClientsModule, UsersModule],
+  imports: [
+    TasksModule,
+    ProjectsModule,
+    AuthModule,
+    ClientsModule,
+    UsersModule,
+  ],
   controllers: [],
   providers: [],
 })
-export class AppModule { }
+export class AppModule {}
