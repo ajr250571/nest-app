@@ -1,6 +1,9 @@
 https://www.youtube.com/watch?v=wsqcg5ZtUMM&t=2880s
 1:50
 
+https://www.youtube.com/watch?v=2P-Bxrtser4
+0:23:47
+
 <p align="center">
   <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
 </p>
