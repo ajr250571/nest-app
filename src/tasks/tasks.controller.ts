@@ -20,6 +20,7 @@ import { updateTaskDto } from './dto/update-task.dto';
 import { TasksPipe } from './tasks.pipe';
 import { TasksGuard } from './tasks.guard';
 import { ApiTags } from '@nestjs/swagger';
+import { Public } from 'src/auth/auth.decorator';
 
 @Controller('/tasks')
 @ApiTags('tasks')
@@ -32,6 +33,7 @@ export class TasksController {
     return 'Not Found.';
   }
 
+  @Public()
   @Get()
   @UseGuards(TasksGuard)
   getAllTasks(@Query(TasksPipe) query: any) {
