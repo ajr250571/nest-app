@@ -33,7 +33,6 @@ export class TasksController {
     return 'Not Found.';
   }
 
-  @Public()
   @Get()
   @UseGuards(TasksGuard)
   getAllTasks(@Query(TasksPipe) query: any) {

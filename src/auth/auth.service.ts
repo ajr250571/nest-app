@@ -26,10 +26,10 @@ export class AuthService {
       throw new UnauthorizedException();
     }
 
-    const payload = { id: user.id, name: user.name };
+    const payload = { id: user.id, email: user.email, name: user.name };
     const token = this.jwtService.sign(payload);
     return {
-      access_token: 'Bearer ' + this.jwtService.sign(payload),
+      access_token: 'Bearer ' + token,
     };
   }
 }
