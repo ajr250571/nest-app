@@ -18,6 +18,7 @@ ApiTags('auth');
 export class AuthController {
   constructor(private authService: AuthService) {}
   @HttpCode(HttpStatus.OK)
+  @Public()
   @Post('register')
   registerUser(@Body() registerAuthDto: RegisterAuthDto) {
     return this.authService.register(registerAuthDto);
